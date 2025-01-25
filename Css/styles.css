@@ -45,10 +45,10 @@ main{
 }
 
 .nav-bar .logo {
+    font-family: Arial, Helvetica, sans-serif;
     color: #ff0000;
     font-size: 1.6rem;
     font-weight: bold;
-    border-bottom: 2px solid #ff0000;
 }
 .nav-bar .logo span{
     color: #f9f9f9;
@@ -70,11 +70,11 @@ main{
 }
 .nav-bar .menu ul li{
     position: relative;
-    border-bottom: 2px solid #ff0000;
 }
 
 .nav-bar .menu ul li a {
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     font-size: 1.4rem;
     transition: color 0.3s;
@@ -121,7 +121,6 @@ main{
 .mobile-menu ul li{
     position: relative;
     list-style: none;
-    border-bottom: 1px solid #d90000;
 }
 .mobile-menu a {
     display: block;
@@ -265,80 +264,107 @@ main{
 
 /*Ajutes no Segundo Carrousel*/
 
-.showcase-carousel {
+.carousel-showcase {
     position: relative;
     width: 100%;
-    height: var(--carousel-height);
-    border-radius: 12px;
+    height: auto;
     overflow: hidden;
+    margin-block-start: 6.2rem;
+    border-radius: 12px;
+    height: var(--carousel-height);
 }
 
-.showcase-carousel-background {
-    position: absolute;
-    top: 0;
-    left: 0;
+.carousel-track-showcase {
+    display: flex;
+    height: auto;
+    transition: transform var(--animation-duration) ease-in-out;
+}
+
+.carousel-slide-showcase {
+    min-width: 100%;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel-showcase img {
     width: 100%;
     height: 100%;
-    z-index: 1;
-    opacity: var(--background-opacity);
-    background-size: cover;
-    background-position: center;
-    transition: background-image var(--transition-duration) ease-in-out;
+    border-radius: 12px;
+    aspect-ratio: 16/6;
+    object-fit: cover;
 }
 
-.showcase-carousel-track {
-    position: relative;
-    display: flex;
-    height: 100%;
-    transition: opacity var(--transition-duration) ease-in-out;
-}
-
-.showcase-carousel-slide {
-    min-width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    opacity: 0;
-    z-index: 2;
-    transition: opacity var(--transition-duration) ease-in-out;
-}
-
-.showcase-carousel-slide.active {
-    opacity: 1;
-    z-index: 3;
-}
-
-.showcase-carousel-content {
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.showcase-carousel-indicators {
+.carousel-indicators-showcase {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    z-index: 4;
 }
 
-.showcase-carousel-indicator {
-    width: 12px;
-    height: 12px;
-    background-color: white;
+.carousel-indicator-showcase {
+    width: 10px;
+    height: 10px;
+    background-color: var(--carousel-indicator-color);
     border-radius: 50%;
     cursor: pointer;
-    opacity: 0.7;
 }
 
-.showcase-carousel-indicator.active {
-    background-color: #f00000;
-    opacity: 1;
+.carousel-indicator-showcase.active {
+    background-color: var(--carousel-indicator-active-color);
+}
+
+.carousel-button-showcase {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ee0000;
+    border: none;
+    font-size: 1.6rem;
+    padding: 1.2rem 1.8rem;
+    cursor: pointer;
+}
+
+.carousel-button-showcase.prev {
+    left: 10px;
+}
+
+.carousel-button-showcase.next {
+    right: 10px;
+}
+
+.carousel-button-.showcase:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+ 
+/* Ajustes para mobile */
+
+@media (max-width: 768px) {
+
+    :root {
+        --carousel-height: 320px;
+    }
+    
+    .carousel-showcase {
+        max-width: 100vh;
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel-track-showcase{
+        max-width: 100vh;
+        width: 100%;
+        height: 320px;
+    }
+
+    .carousel-slide-showcase {
+        width: 100%;
+        height: 390px;
+    }
 }
 
 /*Responsividade*/
